@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmpleadosController;
 
-Route::get('/', [UserController::class, 'index']);
-Route::post('users', [UserController::class, 'store'])->name('users.store');
-Route::delete('users/{user}', [UserController::class,'destroy'])->name('users.destroy');
+Route::get('/', [EmpleadosController::class, 'index'])->name('empleados.index');
+Route::post('empleados', [EmpleadosController::class, 'store'])->name('empleados.store');
+Route::delete('empleados/{empleados}', [EmpleadosController::class,'destroy'])->name('empleados.destroy');
 
 
 

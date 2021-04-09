@@ -21,7 +21,7 @@
                     <div class="alert alert-primary col-sm-10" role="alert">Los campos con asteriscos (*) son obligatorios</div>
                     <br>
                     <div>
-                        <form action="{{ route('users.store') }}" method="POST">
+                        <form action="{{ route('empleados.index') }}" method="POST">
                             <div class="form-group row">
                                 <label for="name" class="col-sm-2 col-form-label font-weight-bold"><b>Nombre Completo *</b></label>
                                 <div class="col-sm-8">
@@ -96,26 +96,31 @@
                                 <th>ID</th>
                                 <th>Nombre</th>
                                 <th>Email</th>
-                                <th>Teléfono</th>
+                                <th>Sexo</th>
+                                <th>Area</th>
+                                <th>Boletín</th>
                                 <th>&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($users as $user)
+                            @foreach($empleados as $empleado)
                             <tr>
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->telefono }}</td>
-                                <td>{{ $user->email }}</td>
+                                <td>{{ $empleado->id }}</td>
+                                <td>{{ $empleado->name }}</td>
+                                <td>{{ $empleado->email }}</td>
+                                <td>{{ $empleado->sexo }}</td>
+                                <td>{{ $empleado->area }}</td>
+                                <td>{{ $empleado->boletin }}</td>
+                                <td>{{ $empleado->sexo }}</td>
                                 <td>
-                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                    <form action="{{ route('empleados.destroy', $empleado->id) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
                                         <input
                                         type="submit"
                                         value="Eliminar"
                                         class="btn btn-sm btn-danger"
-                                        onclick="return confirm('¿Desea eliminar el usuario?')">
+                                        onclick="return confirm('¿Desea eliminar el empleado?')">
                                         <input
                                         type="submit"
                                         value="Modificar"
